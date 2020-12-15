@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do projeto de Receitas!
 
-## O que deverá ser desenvolvido
+## O que foi desenvolvido
 
 Foi desenvolvido um app de receitas, utilizando o que há de mais moderno dentro do ecossistema React: Hooks e Context API!
 
