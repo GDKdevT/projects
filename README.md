@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do projeto de Tech News!
 
-## O que deverá foi desenvolvido
+## O que foi desenvolvido
 
 Criação de um banco de dados de notícias sobre tecnologia e realizar algumas consultas nas notícias registradas.
 
