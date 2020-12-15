@@ -30,7 +30,7 @@ def scrape(fetcher, pages=1):
                 "timestamp": res.css("#js-article-date::attr(datetime)").get(),
                 "writer": res.css(".tec--author__info__link::text").get(),
                 "shares_count": int(res.css(
-                    ".tec--toolbar__item::text").re_first("\\d")),
+                    ".tec--toolbar__item::text").re_first(r"\d")),
                 "comments_count": int(res.css(
                     "#js-comments-btn::attr(data-count)").get()),
                 "summary": res.css(".tec--article__body p *::text").get(),
