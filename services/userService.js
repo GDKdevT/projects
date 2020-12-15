@@ -1,31 +1,22 @@
-const userModel = require('../models/userModel');
 const jwt = require('jsonwebtoken');
+const userModel = require('../models/userModel');
 
 const emailTest = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
 const secret = 'cookmastersecret';
 
 const verifyFields = (name, email, password) => {
-  if (!name) {
-    return { status: 400, message: 'Invalid entries. Try again.' };
-  }
-  if (!email || !email.match(emailTest)) {
-    return { status: 400, message: 'Invalid entries. Try again.' };
-  }
-  if (!password) {
+  if (!name || !email || !email.match(emailTest) || !password) {
     return { status: 400, message: 'Invalid entries. Try again.' };
   }
   return null;
 };
 
 const verifyLogin = (email, password) => {
-  if (!email) {
+  if (!email || !password) {
     return { status: 401, message: 'All fields must be filled' };
   }
   if (!email.match(emailTest)) {
     return { status: 401, message: 'Incorrect username or password' };
-  }
-  if (!password) {
-    return { status: 401, message: 'All fields must be filled' };
   }
   return null;
 };

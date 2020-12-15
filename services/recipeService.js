@@ -1,14 +1,8 @@
-const recipeModel = require('../models/recipeModel');
 const { ObjectId } = require('mongodb');
+const recipeModel = require('../models/recipeModel');
 
 const verifyFields = (name, ingredients, preparation) => {
-  if (!name) {
-    return { status: 400, message: 'Invalid entries. Try again.' };
-  }
-  if (!ingredients) {
-    return { status: 400, message: 'Invalid entries. Try again.' };
-  }
-  if (!preparation) {
+  if (!name || !ingredients || !preparation) {
     return { status: 400, message: 'Invalid entries. Try again.' };
   }
   return null;
@@ -31,7 +25,7 @@ const add = async (name, ingredients, preparation, id) => {
 };
 
 const findRecipe = async (id) => {
-  if (id.length < 24) {
+  if (!ObjectId.isValid(id)) {
     return { status: 404, message: 'recipe not found' };
   }
 
