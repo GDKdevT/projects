@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const middlewares = require('./middlewares');
 const controllers = require('./controllers');
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -41,4 +43,4 @@ app.get('/me/recipes', middlewares.auth(), controllers.recipeController.listMyRe
 app.get('/me/edit', middlewares.auth(), controllers.userController.editUserForm);
 app.post('/me', middlewares.auth(), controllers.userController.editUserPost);
 
-app.listen(3000, () => console.log('Listening on 3000'));
+app.listen(PORT, () => console.log(`Listening on ${PORT}`));
